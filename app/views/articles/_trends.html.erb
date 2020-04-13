@@ -1,0 +1,20 @@
+<div class="column is-one-quarter">
+	<nav class="panel">
+		<p class="panel-heading"> Trending</p>
+    <% @articles.map(&:title).uniq.each do | article |%>
+	<div class="panel-block">
+		<article class="media">
+			<div class="media-left">
+			</div>
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong><%= article %></strong><br/>
+					</p>
+				</div>
+			</div>
+		</article>
+	</div>
+	<% end %>
+	</nav>
+</div>
