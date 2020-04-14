@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :discussions
+  resources :channels
+  
+  resources :discussions do
+    resources :replies
+  end 
+
   resources :dashboard, only: [:index]
+  
   resources :articles do 
   	resources :comments 
   	member do

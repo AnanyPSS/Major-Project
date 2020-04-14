@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_135422) do
+ActiveRecord::Schema.define(version: 2020_04_13_184635) do
 
   create_table "articles", force: :cascade do |t|
     t.text "article"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_04_13_135422) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "title"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string "channel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "discussion_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -35,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_135422) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "channel_id"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -67,6 +75,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_135422) do
     t.text "reply"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discussion_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
