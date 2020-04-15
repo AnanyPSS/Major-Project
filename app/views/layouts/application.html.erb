@@ -74,11 +74,8 @@
           <div class="navbar-item">
             <div class="field is-grouped">
               <% if user_signed_in? %>
-              <p class="control">
-                <%= link_to new_article_path, class: "button is-info" do %>
-                  <span class="icon is-small"><i class="fa fa-upload"></i></span>
-                  <span>New Article</span>
-                  <% end %>
+              <p class="select">
+                  
               </p>
               <p class="control">
                 <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>  
