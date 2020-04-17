@@ -45,7 +45,7 @@
             <div class="level-item views data">
               <%= link_to article do %>
                 <span class="icon"><i class="fa fa-eye"></i></span>
-                <%= article.impressionist_count %>
+                <%= @article.impressionist_count %>
               <% end %>
             </div>
             <div class="level-item comments data">
@@ -78,7 +78,7 @@
 
             </div>
 
-			<% if user_signed_in? && current_user.id ==article.user_id %>
+			<% if user_signed_in? && current_user.id ==article.user_id || has_role?(:admin) %>
 				<nav class="level article-analytics">
 					<div class="level-right ">
 					<%= link_to edit_article_path(article), class: "level-item" do %>

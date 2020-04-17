@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to root_path, notice: 'Article was successfully created.' }
+        format.html { redirect_to articles_url, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
   def like
     @article.liked_by current_user
     respond_to do |format|
-      format.html { redirect_back fallback_location: root_path }
+      format.html { redirect_to @article, fallback_location: root_path }
       format.json { render layout:false }
     end
   end
