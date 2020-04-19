@@ -1,7 +1,120 @@
-<div class="container">
-<figure class="bg-img">
-  <%= image_tag("book.jpg", size: "2560x1600", :alt => "rss feed") -%>
-  <h1>Ananya Pratap</h1>
-</figure>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.bg-img { 
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-attachment: fixed;
+        background-size:  cover;
+        background-color: #999;
 
-</div>
+ }
+.img-responsive {
+      display: block; 
+      max-width: 100%;
+      height: auto;
+
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 200px;
+  left: 65px;
+}
+
+.sign-in {
+  position: absolute;
+  top: 150px;
+  right: 350px;
+}
+
+.sign-up {
+  position: absolute;
+  top: 150px;
+  right: 130px;
+}
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 70px;
+  right: 16px;
+}
+
+.box1 {
+  opacity: 0.50;
+  color:white;
+  font-size: 250%;
+}
+
+.box2 {
+  opacity: 0.50;
+  color:black;
+  font-size: 250%;
+}
+
+.vl {
+  border-left: 6px white;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="bg-img">
+      <img class="img-responsive" src="books3.jpg"/>
+  
+  <% if user_signed_in? %>
+ 
+
+   <div class="vl"></div>
+
+
+  <% else %>
+  <div class="top-left">  
+    <div class="box1">
+      <p>“The first draft is just you</br> &nbsp;&nbsp; telling yourself the story.” ~ Terry Pratchett</br> &nbsp;&nbsp;&nbsp; 
+        <%= link_to articles_path do %>
+         <span>Articles &nbsp; </span>
+         <span class="icon is-small"><i class="fa fa-send"></i></span>
+         <% end %>
+      </p>
+    </div>
+  </div>
+    
+   <div class="sign-in">
+        <p><button class="button is-large">
+          <%= link_to 'Sign In', new_user_session_path %> 
+        </button></p>
+
+    </div>
+   <div class="sign-up"> 
+        <p><button class="button is-large">
+          <%= link_to 'Sign Up', new_user_registration_path %> 
+        </button></p>
+   </div>
+
+    
+  <div class="bottom-right">
+    
+    <div class="box2">
+      <p>“ A good discussion increases the dimensions of everyone</br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; who takes part in it.
+        <%= link_to discussions_path do %>
+         <span>Discussions &nbsp; </span>
+         <span class="icon is-small"><i class="fa fa-group"></i></span>
+         <% end %>
+      </p>
+    </div>
+    <% end %>
+
+  </div>
+  
+
+</body>
+</html>

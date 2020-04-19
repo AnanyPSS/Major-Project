@@ -23,9 +23,15 @@
 
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <%= link_to dashboard_index_path, class: "navbar-item" do %>
-        <h1 class="title is-3 has-text-white"> Telligent </h1>
+      <% if user_signed_in? %>
+        <%= link_to articles_path, class: "navbar-item" do %>
+        <h1 class="title is-2 has-text-white"> Telligent </h1>
       <% end %>
+      <% else %>
+        <%= link_to dashboard_index_path, class: "navbar-item" do %>
+        <h1 class="title is-2 has-text-white"> Telligent </h1>
+        <% end %>
+        <% end %>
       <div class="navbar-burger burger" data-target="navbar">
         <span></span>
         <span></span>
@@ -35,6 +41,7 @@
 
      <div id="navbar" class="navbar-menu">
        <div class="level-left">
+        <% if user_signed_in? %>
         <div class="navbar-start">
           <div class="navbar-item">
             <div class="field is-grouped">
@@ -56,8 +63,8 @@
             </div>
           </div>
         </div>
-
-</div>
+        <% end %>
+      </div>
 
    
          <div class="navbar-end">
@@ -67,7 +74,7 @@
               <p class="control ">
                 <div class="dropdown is-hoverable">
                   <div class="dropdown-trigger">
-                    <button class="button is-info" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <button class="button is-info is-rounded" aria-haspopup="true" aria-controls="dropdown-menu4">
                       <span>Create New</span>
                       <span class="icon is-small">
                       <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -95,20 +102,12 @@
             </div>
             </p>
               <p class="control">
-                <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>  
+                <%= link_to current_user.name, edit_user_registration_path, class: "button is-info is-rounded" %>  
               </p>
 
               <p class="control">
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info is-rounded" %>
               </p>
-            <% else %>
-              <p class="control">
-                <%= link_to 'Sign In', new_user_session_path , class: "button is_info" %> 
-              </p>
-
-          <p class="control">
-            <%= link_to 'Sign Up', new_user_registration_path , class: "button is_info" %> 
-            </p>
             <% end %>
           </div>
         </div>
