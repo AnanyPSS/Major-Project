@@ -16,7 +16,9 @@
 				<div class="shot-container">
 
 					<div class="content">
-						<%= @article.article%>
+						<div class="froala-view">
+						<%= @article.article.html_safe %>
+						</div>
 					</div>
 
 					<% if user_signed_in? && (current_user.id == @article.user_id) || has_role?(:admin) %>		

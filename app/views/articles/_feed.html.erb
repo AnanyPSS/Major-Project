@@ -1,16 +1,4 @@
 <div class="column is-half">
-	<% if user_signed_in? %>
-	<article class="media box">
-		<figure class="media-left">
-			<p class="image is-64x64">
-				<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
-			</p>
-		</figure>
-		<div class="media-content">
-			<%=render 'articles/form' %>
-		</div>
-    </article>
-   	<% end %>
 
 <% @articles.each do | article |%>
 	<%= link_to article do %>
@@ -27,7 +15,7 @@
 					<small><%= article.user.username %></small><br/>
 					<p>
 						<h4 class="has-text-info is-italic"><%= article.title %></h4>
-						<%= truncate(article.article, length:60) %>
+						<%= raw article.article.truncate(140) %>
 					</p>
 				</div>
 				

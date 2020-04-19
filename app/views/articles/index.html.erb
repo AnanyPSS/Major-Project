@@ -4,10 +4,7 @@
   <div class="container">
     <div class="columns">
     	<% if user_signed_in?%>
-      <div class="column">
-    		<%= render 'profile'%>
-        <%= render 'trends'%>
-      </div>      
+          <%= render 'profile'%> 
     	<% else %>
       		<%= render 'trends'%>
 

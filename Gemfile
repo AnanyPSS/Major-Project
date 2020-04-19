@@ -51,6 +51,8 @@ gem 'cancancan', '~> 3.1'
 gem 'friendly_id', '~> 5.3'
 gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
+gem 'wysiwyg-rails','~>2.9.6'
+gem 'font-awesome-rails'
 #######################################
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

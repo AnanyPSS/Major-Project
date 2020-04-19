@@ -26,20 +26,35 @@
 						<p class="title is-6"><%= current_user.articles.count %></p>
 					</div>
 				</div>
+				
 				<div class="level-item has-centered-text">
 					<div>
-						<p class="heading">Following</p>
-						<p class="title is-6"><%= %></p>
-					</div>
-				</div>
-				<div class="level-item has-centered-text">
-					<div>
-						<p class="heading">Followers</p>
-						<p class="title is-6">78(HARD)</p>
+						<p class="heading">Readers</p>
+						<p class="title is-6"><%= User.count %></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</nav>
+
+	<nav class="panel">
+		<p class="panel-heading"> Trending</p>
+    <% @articles.map(&:title).uniq.each do | article |%>
+	<div class="panel-block">
+		<article class="media">
+			<div class="media-left">
+			</div>
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong><%= article %></strong><br/>
+					</p>
+				</div>
+			</div>
+		</article>
+	</div>
+	<% end %>
+	</nav>
 </div>
+
 
